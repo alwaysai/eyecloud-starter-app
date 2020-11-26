@@ -3,7 +3,7 @@
     "start": "python app.py"
   },
   "models": {
-    "alwaysai/mobilenet-ssd-eyecloud": 1,
-    "alwaysai/human-pose-eyecloud": 1
+    "alwaysai/mobilenet_ssd_eyecloud": 1,
+    "alwaysai/human_pose_eyecloud": 1
   }
 }
