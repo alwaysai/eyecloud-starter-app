@@ -12,7 +12,7 @@ def main():
 
             frame = camera.get_frame()
 
-            result = camera.get_model_results()
+            result = camera.get_model_result()
 
             # Check for inferencing results.
             if result:
