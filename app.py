@@ -10,7 +10,7 @@ def main():
         while True:
             text = []
 
-            frame = camera.read()
+            frame = camera.get_frame()
 
             result = camera.get_model_results()
 
