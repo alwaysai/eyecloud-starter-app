@@ -4,18 +4,26 @@ import cv2
 
 def main():
     # Change parameter to alwaysai/human-pose-eyecloud to run the human pose model
+
+    fps = edgeiq.FPS()
     with edgeiq.EyeCloud('alwaysai/mobilenet_ssd_eyecloud'
                          ) as camera, edgeiq.Streamer() as streamer:
 
+        fps.start()
         while True:
-            text = []
+
+            text = [fps.compute_fps()]
 
             frame = camera.get_frame()
+
+            print('image sequence = {}'.format(frame.sequence_index))
 
             result = camera.get_model_result()
 
             # Check for inferencing results.
             if result:
+                print('model sequence = {}'.format(result.sequence_index))
+
                 text.append("Model: {}".format(camera.model_id))
 
                 if camera.model_purpose == 'PoseEstimation':
@@ -58,6 +66,10 @@ def main():
 
             if streamer.check_exit():
                 break
+
+            fps.update()
+
+        print('fps = {}'.format(fps.compute_fps()))
 
 
 if __name__ == '__main__':
