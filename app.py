@@ -3,9 +3,9 @@ import cv2
 
 
 def main():
-    # Change parameter to alwaysai/human-pose-eyecloud to run the human pose model
-
     fps = edgeiq.FPS()
+
+    # Change parameter to alwaysai/human_pose_eyecloud to run the human pose model.
     with edgeiq.EyeCloud('alwaysai/mobilenet_ssd_eyecloud'
                          ) as camera, edgeiq.Streamer() as streamer:
 
