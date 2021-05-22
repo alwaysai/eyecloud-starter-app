@@ -1,6 +1,6 @@
-# Eyecloud-Starter-App
+# Eyecloud Starter App
 
-Basic application to get you started working with Eyecloud Cameras.
+A basic application to get you started working with Eyecloud Cameras.
 
 ## Note
 Eyecloud containers are in this format: alwaysai/edgeiq:eyecloud-\<arch\>-\<version\>.
