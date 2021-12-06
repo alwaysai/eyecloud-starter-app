@@ -1,34 +1,29 @@
-import edgeiq
 import cv2
+import edgeiq
+from edgeiq import eyecloud
 
 
 def main():
     fps = edgeiq.FPS()
 
     # Change parameter to alwaysai/human_pose_eyecloud to run the human pose model.
-    with edgeiq.EyeCloud('alwaysai/mobilenet_ssd_eyecloud'
-                         ) as camera, edgeiq.Streamer() as streamer:
+    with edgeiq.eyecloud.EyeCloud('alwaysai/mobilenet_ssd_eyecloud') as camera, \
+                    edgeiq.Streamer() as streamer:
 
         fps.start()
         while True:
-
             text = [fps.compute_fps()]
-
             frame = camera.get_frame()
-
             print('image sequence = {}'.format(frame.sequence_index))
-
             result = camera.get_model_result()
 
             # Check for inferencing results.
             if result:
                 print('model sequence = {}'.format(result.sequence_index))
-
                 text.append("Model: {}".format(camera.model_id))
 
                 if camera.model_purpose == 'PoseEstimation':
                     frame = result.draw_poses(frame)
-
                     text.append("Inference time: {:1.3f} s".format(
                         result.duration))
 
