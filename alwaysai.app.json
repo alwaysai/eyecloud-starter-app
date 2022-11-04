@@ -4,6 +4,6 @@
   },
   "models": {
     "alwaysai/mobilenet_ssd_eyecloud": 1,
-    "alwaysai/human_pose_eyecloud": 1
+    "alwaysai/human_pose_eyecloud": 2
   }
 }
